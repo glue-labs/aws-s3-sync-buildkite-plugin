@@ -5,7 +5,7 @@ function aws_s3_sync() {
   local destination=$2
   local extra_args=$3
   params=()
-
+  echo "source: '$source' destination: '$destination' extra-args: '$extra_args'"
   if [ -z "$extra_args" ]
   then
     if [[ "${BUILDKITE_PLUGIN_AWS_S3_SYNC_DELETE:-false}" == "true" ]]; then
@@ -23,5 +23,5 @@ function aws_s3_sync() {
   params+=("$source")
   params+=("$destination")
   echo "~~~ :s3: Syncing '$source' to '$destination'"
-  aws s3 sync "${params[@]}"
+  echo `aws s3 sync ${params[@]}`
 }
