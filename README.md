@@ -53,6 +53,12 @@ Defaults to `true`
 
 Symbolic links are followed only when uploading to S3 from the local filesystem.
 
+### `extra-args`
+
+Defaults to `""`
+
+Extra args are added s3 sync command. This overrides `follow-symlinks` & `delete`.
+
 ## Development
 
 To run the tests:

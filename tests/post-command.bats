@@ -9,6 +9,7 @@ load '/usr/local/lib/bats/load.bash'
   export BUILDKITE_COMMAND_EXIT_STATUS=0
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_SOURCE=source/
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_DESTINATION=s3://destination
+  export BUILDKITE_PLUGIN_AWS_S3_SYNC_EXTRA_ARGS=""
 
   stub aws "s3 sync source/ s3://destination : echo s3 sync"
 
@@ -24,6 +25,7 @@ load '/usr/local/lib/bats/load.bash'
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_SOURCE=source/
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_DESTINATION=s3://destination
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_DELETE=true
+  export BUILDKITE_PLUGIN_AWS_S3_SYNC_EXTRA_ARGS=""
 
   stub aws "s3 sync --delete source/ s3://destination : echo s3 sync --delete"
 
@@ -39,6 +41,7 @@ load '/usr/local/lib/bats/load.bash'
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_SOURCE=source/
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_DESTINATION=s3://destination
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_FOLLOW_SYMLINKS=false
+  export BUILDKITE_PLUGIN_AWS_S3_SYNC_EXTRA_ARGS=""
 
   stub aws "s3 sync --no-follow-symlinks source/ s3://destination : echo s3 sync --no-follow-symlinks"
 
@@ -53,6 +56,7 @@ load '/usr/local/lib/bats/load.bash'
   export BUILDKITE_COMMAND_EXIT_STATUS=1
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_SOURCE=source/
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_DESTINATION=s3://destination
+  export BUILDKITE_PLUGIN_AWS_S3_SYNC_EXTRA_ARGS=""
 
   run $PWD/hooks/post-command
 
@@ -64,6 +68,7 @@ load '/usr/local/lib/bats/load.bash'
   export BUILDKITE_COMMAND_EXIT_STATUS=0
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_SOURCE=s3://source
   export BUILDKITE_PLUGIN_AWS_S3_SYNC_DESTINATION=destination/
+  export BUILDKITE_PLUGIN_AWS_S3_SYNC_EXTRA_ARGS=""
 
   run $PWD/hooks/post-command
 
